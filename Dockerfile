@@ -1,11 +1,8 @@
 FROM ikasetebo/ubuntu:v0.01
 
-WORKDIR /etc/nginx/sites-available/
-COPY nginx-conf/sites-available/default default
-
 WORKDIR /
 COPY ./entrypoint/entrypoint.sh /
-RUN apt-get install -y nginx \
+RUN apt-get update && apt-get install -y nginx \
     -y dos2unix \
     && dos2unix ./entrypoint.sh \
     && ln -sf /shared/stdout /var/log/nginx/access.log \
