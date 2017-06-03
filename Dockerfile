@@ -1,4 +1,4 @@
-FROM ikasetebo/ubuntu-14.04:v0.01
+FROM ikasetebo/ubuntu:v0.01
 
 WORKDIR /etc/nginx/sites-available/
 COPY nginx-conf/sites-available/default default
