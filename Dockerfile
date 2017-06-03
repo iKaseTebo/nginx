@@ -11,6 +11,6 @@ RUN apt-get update && apt-get install -y nginx \
 
 EXPOSE 80 443
 
-VOLUME ["/shared/","/etc/nginx/","/usr/share/nginx/html]
+VOLUME ["/shared/","/etc/nginx/","/usr/share/nginx/html"]
 
 ENTRYPOINT ["./entrypoint.sh"]
