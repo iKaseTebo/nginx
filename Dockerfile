@@ -1,4 +1,4 @@
-FROM ikasetebo/ubuntu-14.04:v0.01
+FROM ikasetebo/ubuntu-16.04:v0.01
 
 
 WORKDIR /
