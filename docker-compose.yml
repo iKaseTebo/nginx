@@ -19,7 +19,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx-conf/conf/conf.d/:/etc/nginx/conf.d/
-      - ./nginx-conf/sites-available/default:/etc/nginx/sites-enabled/default
+      - ./nginx-conf/sites-available/default:/etc/nginx/sites-available/default
 networks:
   app_bridge:
     driver: bridge
