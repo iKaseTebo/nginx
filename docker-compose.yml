@@ -1,17 +1,8 @@
 version: '3'
-
 services:
-  app:
-    container_name: laravel-v0.03
-    image: eboraas/laravel:latest
-    networks:
-      - app_bridge
-    pid: 'host'
-    ports:
-      - '8888:80'
   nginx:
-    container_name: custom-proxy-v0.03
-    image: ikasetebo/nginx-16.04:v0.03
+    container_name: custom-nginx-v0.01
+    image: ikasetebo/nginx-16.04:v0.01
     networks:
       - app_bridge
     ports:
