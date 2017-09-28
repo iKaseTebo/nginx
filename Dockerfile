@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y nginx \
     && ln -sf /shared/stdout /var/log/nginx/access.log \
 	&& ln -sf /shared/stderr /var/log/nginx/error.log
 
+COPY ./nginx-conf/ssl /etc/nginx/ssl
+COPY ./nginx-conf/conf/conf.d /etc/nginx/conf.d
+COPY ./nginx-conf/sites-available/default /etc/nginx/sites-enabled/default
 
 EXPOSE 80 443
 
