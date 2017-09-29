@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y nginx \
 	&& ln -sf /shared/stderr /var/log/nginx/error.log
 
 COPY ./nginx-conf/ssl /etc/nginx/ssl
-COPY ./nginx-conf/conf/conf.d /etc/nginx/conf.d/
+COPY ./nginx-conf/conf/conf.d/ /etc/nginx/conf.d/
+COPY ./nginx-conf/conf/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./nginx-conf/sites-available/default /etc/nginx/sites-available/default
 
 EXPOSE 80 443

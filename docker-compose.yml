@@ -2,26 +2,29 @@ version: '3'
 
 services:
   app:
-    container_name: laravel-v0.10
+    container_name: laravel-v0.16
     image: ikasetebo/laravel:v0.08
     networks:
-      - app_bridge
+      - proxy_bridge
     pid: 'host'
-    ports:
-      - '8888:80'
+    expose:
+      - "80"
   nginx:
-    container_name: custom-proxy-v0.10
-    image: ikasetebo/nginx-16.04:v10.00
+    container_name: custom-proxy-v0.16
+    image: ikasetebo/nginx-16.04:v10.14
     networks:
-      - app_bridge
+      - proxy_bridge
     ports:
-      - "8080:80"
+      - "8080:8080"
       - "443:443"
     volumes:
       - ./nginx-conf/conf/conf.d/:/etc/nginx/conf.d/
-      - ./nginx-conf/sites-available/default:/etc/nginx/sites-enabled/default
+      - ./nginx-conf/sites-available/default:/etc/nginx/sites-available/default
+    depends_on:
+      - app
+
 networks:
-  app_bridge:
+  proxy_bridge:
     driver: bridge
 
 
