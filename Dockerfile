@@ -1,8 +1,8 @@
 FROM ikasetebo/ubuntu-16.04:v0.01
 
-
 WORKDIR /
 COPY ./entrypoint/entrypoint.sh /
+
 RUN apt-get update && apt-get install -y nginx \
     -y dos2unix \
     && dos2unix ./entrypoint.sh \
